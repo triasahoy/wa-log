@@ -26,6 +26,6 @@ Built for high-volume logistics operations, such as those in the Kendal Special 
 
 **1. Clone the repository and install dependencies:**
 ```bash
-git clone [https://github.com/YourUsername/whatsapp-logistics-forwarder.git](https://github.com/YourUsername/whatsapp-logistics-forwarder.git)
+git clone https://github.com/triasahoy/wa-log.git
 cd whatsapp-logistics-forwarder
 npm install
