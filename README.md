@@ -1,37 +1,132 @@
-# 🚢 WhatsApp Logistics Auto-Forwarder & Data Logger
+#  WA-Log: EXIM Automated Logistics Middleware (Node.js + AI Vision)
 
-An automated, Node.js-based middleware designed to streamline Import/Export (EXIM) logistics communication. 
+An autonomous, end-to-end WhatsApp bot designed to streamline Import/Export (EXIM) supply chain communications. 
 
-This bot acts as an invisible assistant between external trucking vendors and internal receiving operations. It autonomously reads incoming WhatsApp group messages, extracts critical shipping data using Regex, filters out duplicates, forwards verified updates to internal teams, and automatically builds a `.csv` database for monthly reporting.
-
-Built for high-volume logistics operations, such as those in the Kendal Special Economic Zone (KEK), to eliminate manual data entry and reduce communication bottlenecks.
+Built to handle high-volume logistics operations—such as those managing daily container traffic for PT Borine Technology Indonesia within the Kendal Special Economic Zone (KEK)—this middleware sits directly between external trucking vendors, factory security gates, and internal receiving operations. It parses unstructured text, runs AI vision on physical delivery photos, filters out spam, and builds automated audit databases in real-time.
 
 ## ✨ Key Features
 
-* **Real-Time Data Extraction:** Uses Regular Expressions (Regex) to instantly identify and extract Container IDs, Driver Names, Fleet Numbers, and Contact Info from unstructured vendor messages.
-* **Smart Duplicate Filtering (14-Day Cooldown):** Features a localized JSON database that remembers processed containers. It automatically drops duplicate spam or double-posts but intelligently resets after 14 days to accommodate physical container re-use in future import cycles.
-* **Automated CSV Pipeline:** Every forwarded container is appended to a `shipping_log.csv` file with precise formatting and timestamps, creating an instant, audit-ready database for end-of-month reporting.
-* **Professional Formatting:** Re-formats raw vendor text into clear, standardized alerts for the internal warehouse/ops team.
-* **Admin Disconnect Alerts:** Sends a direct WhatsApp notification to the administrator if the bot goes online or offline.
-* **24/7 Background Execution:** Designed to run continuously on a server or local machine using `pm2`.
+* **Dual-Format Regex Parsing:** Automatically identifies and extracts critical data from two distinct communication formats: Port Dispatches (Trucking Vendors) and Factory Gate Arrivals (Security).
+* **AI Optical Character Recognition (OCR):** Integrates `Tesseract.js` to automatically download security photos of shipping containers, read the physical text on the metal doors, and cross-reference it with the guard's typed caption to ensure data integrity.
+* **Smart Duplicate Filtering (14-Day Memory):** Features a JSON-based cooldown algorithm that drops accidental vendor double-posts but intelligently resets after 14 days to allow for physical container reuse in future import cycles.
+* **Transparency & Audit Trail:** Detects when vendors edit or delete messages and instantly alerts the internal operations team with the original text to prevent hidden cancellations or typo cover-ups.
+* **Automated CSV Data Pipeline:** Every verified container is appended to a local `shipping_log.csv` file with precise timestamps and AI verification statuses, creating an instant, automated database for end-of-month reporting.
+* **Automated Daily Reporting:** Uses `node-cron` to automatically read the daily database and send a consolidated summary report to the operations group every day at 5:00 PM.
+* **24/7 Background Execution:** Deployed using `pm2` for continuous, headless server execution.
 
-**Result**
+---
 
-<img width="397" height="207" alt="ScreenShot_2026-02-20_133055_357" src="https://github.com/user-attachments/assets/b1f65bf9-3e97-4265-8454-30cb07d3209c" />
+## 📈 Proof of Results
 
+Here is how the bot transforms messy, manual vendor communications into clean, automated logistics data (Note: Sensitive driver and container data has been masked for portfolio demonstration):
+
+### 1. Vendor Dispatch (Port Departure)
+When a trucking vendor sends an unstructured update, the bot instantly parses and forwards it to the internal team:
+> 🤖 **[AUTO-UPDATE: CONTAINER DISPATCHED]**
+> 🚛 **Processed:** 20/02/2026 10:45:00
+> 
+> No cont : XXXX1234567
+> Nama sopir : J*** D**
+> No armada : B 1234 XXX
+> No tlp : 0812********
+
+### 2. Factory Arrival + AI Vision Verification
+When security sends a photo of the truck arriving at the KEK gates, the bot reads the caption AND scans the photo pixels:
+> 🤖 **[AUTO-UPDATE: CONTAINER ARRIVED]**
+> ✅ **Processed:** 20/02/2026 14:30:22
+> 
+> In armada import
+> Driver : R******
+> Nopol : H 5678 XX
+> Nocont : XXXX9876543
+>
+> **AI Vision Scan:** ✅ Verified Match
+
+### 3. Automated 5:00 PM Daily Summary
+At exactly 5:00 PM, the bot tallies the day's CSV logs and sends this to the management group:
+> 📊 **[DAILY EXIM LOGISTICS REPORT]**
+> 📅 **Date:** 20/02/2026
+> 
+> **Total Dispatched (Port):** 2
+> **Total Arrived (Factory):** 1
+> 
+> **Container Activity Today:**
+> 🚛 XXXX1234567 (On the way)
+> 🚛 YYYY1122334 (On the way)
+> ✅ XXXX9876543 (Arrived)
+> 
+> _End of day report automatically generated by EXIM Bot._
+
+### 4. Auto-Generated Database (`shipping_log.csv`)
+| Date | Time | Status | Container Number | Driver Name | Fleet Number | Phone | OCR Verification |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 20/02/2026 | 10:45:00 | DISPATCHED | XXXX1234567 | J*** D** | B 1234 XXX | 0812******** | Not Scanned |
+| 20/02/2026 | 14:30:22 | ARRIVED | XXXX9876543 | R****** | H 5678 XX | N/A | Verified Match |
+
+---
 
 ## 🛠️ Tech Stack
 
-* **Runtime:** [Node.js](https://nodejs.org/) (v22+)
+* **Runtime:** [Node.js](https://nodejs.org/)
 * **API Wrapper:** [`whatsapp-web.js`](https://wwebjs.dev/) (Headless WhatsApp Web client via Puppeteer)
-* **Process Management:** `pm2`
-* **Data Storage:** Local JSON (Memory Cache) & CSV (Data Pipeline)
+* **AI Engine:** `tesseract.js` (Optical Character Recognition)
+* **Task Scheduler:** `node-cron`
+* **Process Manager:** `pm2`
+
+---
 
 ## 🚀 Installation & Setup
 
-**1. Clone the repository and install dependencies:**
+**1. Clone the repository:**
 ```bash
-git clone https://github.com/triasahoy/wa-log.git
-cd whatsapp-logistics-forwarder
-npm install
+git clone [https://github.com/triasahoy/wa-log.git](https://github.com/triasahoy/wa-log.git)
+cd wa-log
 node index.js
+
+```
+
+**2. Install all dependencies:**
+
+```bash
+npm install whatsapp-web.js qrcode-terminal tesseract.js node-cron
+
+```
+
+**3. Configure your WhatsApp Group IDs:**
+Open `index.js` and input your specific WhatsApp Group IDs (ending in `@g.us`).
+*(Note: A temporary `get-groups.js` script is included in this repo to help you fetch your hidden group IDs easily).*
+
+```javascript
+const SOURCE_GROUP_ID = '1234567890@g.us';      // Trucking Vendor Group
+const SECURITY_GROUP_ID = '0987654321@g.us';    // Factory Security Group
+const DESTINATION_GROUP_ID = '1122334455@g.us'; // Internal Operations Group
+
+```
+
+**4. Run the application:**
+
+```bash
+node index.js
+
+```
+
+Scan the generated QR code using your WhatsApp "Linked Devices" feature.
+
+**5. Deploy for 24/7 Background Execution:**
+
+```bash
+npm install -g pm2
+pm2 start index.js --name "EximBot"
+pm2 save
+
+```
+
+## ⚠️ Disclaimer
+
+This project utilizes the unofficial `whatsapp-web.js` library. It is designed strictly for internal operational efficiency and B2B logistics routing. Using this for mass-marketing or spam violates WhatsApp's Terms of Service. Always test with internal numbers before deploying to live vendor groups.
+
+```
+
+Are you ready to commit this to your Git repository, or do you need a quick refresher on the terminal commands to push this code up to GitHub?
+
+```
