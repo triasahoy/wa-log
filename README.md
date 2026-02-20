@@ -126,7 +126,3 @@ pm2 save
 This project utilizes the unofficial `whatsapp-web.js` library. It is designed strictly for internal operational efficiency and B2B logistics routing. Using this for mass-marketing or spam violates WhatsApp's Terms of Service. Always test with internal numbers before deploying to live vendor groups.
 
 ```
-
-Are you ready to commit this to your Git repository, or do you need a quick refresher on the terminal commands to push this code up to GitHub?
-
-```
