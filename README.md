@@ -29,3 +29,9 @@ Built for high-volume logistics operations, such as those in the Kendal Special 
 git clone https://github.com/triasahoy/wa-log.git
 cd whatsapp-logistics-forwarder
 npm install
+node index.js
+
+Result
+
+<img width="397" height="207" alt="ScreenShot_2026-02-20_133055_357" src="https://github.com/user-attachments/assets/e2fcba6f-c9d3-49f2-8838-dbcb0cf763a0" />
+
