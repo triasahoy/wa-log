@@ -15,6 +15,11 @@ Built for high-volume logistics operations, such as those in the Kendal Special 
 * **Admin Disconnect Alerts:** Sends a direct WhatsApp notification to the administrator if the bot goes online or offline.
 * **24/7 Background Execution:** Designed to run continuously on a server or local machine using `pm2`.
 
+**Result**
+
+<img width="397" height="207" alt="ScreenShot_2026-02-20_133055_357" src="https://github.com/user-attachments/assets/b1f65bf9-3e97-4265-8454-30cb07d3209c" />
+
+
 ## 🛠️ Tech Stack
 
 * **Runtime:** [Node.js](https://nodejs.org/) (v22+)
@@ -30,8 +35,3 @@ git clone https://github.com/triasahoy/wa-log.git
 cd whatsapp-logistics-forwarder
 npm install
 node index.js
-
-Result
-
-<img width="397" height="207" alt="ScreenShot_2026-02-20_133055_357" src="https://github.com/user-attachments/assets/e2fcba6f-c9d3-49f2-8838-dbcb0cf763a0" />
-
