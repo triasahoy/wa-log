@@ -2,7 +2,7 @@
 
 An autonomous, end-to-end WhatsApp bot designed to streamline Import/Export (EXIM) supply chain communications. 
 
-Built to handle high-volume logistics operations—such as those managing daily container traffic for PT Borine Technology Indonesia within the Kendal Special Economic Zone (KEK)—this middleware sits directly between external trucking vendors, factory security gates, and internal receiving operations. It parses unstructured text, runs AI vision on physical delivery photos, filters out spam, and builds automated audit databases in real-time.
+Built to handle high-volume logistics operations—such as those managing daily container traffic for PT XXX within the Kendal Special Economic Zone (KEK)—this middleware sits directly between external trucking vendors, factory security gates, and internal receiving operations. It parses unstructured text, runs AI vision on physical delivery photos, filters out spam, and builds automated audit databases in real-time.
 
 ## ✨ Key Features
 
