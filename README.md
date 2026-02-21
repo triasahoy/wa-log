@@ -85,9 +85,9 @@ At exactly 5:00 PM, the bot tallies the day's CSV logs and sends this to the man
 
 * **Runtime:** Node.js
 * **API Wrapper:** whatsapp-web.js
-* **Enterprise AI: Google Cloud Vision API
-* **Data Handling: JSON (State Memory) & CSV (Audit Logs)
-* **Automation: node-cron & pm2
+* **Enterprise AI:** Google Cloud Vision API
+* **Data Handling:** JSON (State Memory) & CSV (Audit Logs)
+* **Automation:** node-cron & pm2
 
 ---
 
