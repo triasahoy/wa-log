@@ -135,6 +135,52 @@ pm2 start index.js --name "EximBot"
 pm2 save
 
 ```
+### 🚛 SOP for Trucking Vendor Group
+
+> **[PENGUMUMAN: PROSEDUR BARU PELAPORAN CONTAINER]**
+
+> Mohon gunakan salah satu format di bawah ini saat mengirim update armada agar tercatat otomatis oleh sistem:
+
+> **Opsi 1: Format Teks (Terbaik)**
+> 
+> No cont : [Nomor Container]
+> Nama sopir : [Nama]
+> No armada : [Plat Nomor]
+> No tlp : [Nomor HP]
+> 
+> **Opsi 2: Format Foto & Kontak**
+
+> Kirim **Foto Container** (Nomor harus jelas) diikuti dengan **Kartu Kontak (VCard)** sopir.
+> *Catatan: Sistem akan otomatis meneruskan detail ini ke tim Operasional kami.*
+
+---
+
+### 🛡️ SOP for Factory Security Group
+
+*Copy and paste this to your security team:*
+
+> **[SOP KEAMANAN: LAPORAN KEDATANGAN CONTAINER]**
+
+> Setiap container yang sampai di gerbang KEK wajib dilaporkan dengan langkah berikut:
+
+> 1. **Ambil Foto:** Pastikan nomor container terlihat jelas (tidak terhalang bayangan atau blur).
+
+> 2. **Kirim dengan Caption:** Wajib menyertakan teks berikut pada foto tersebut:
+> 
+> Driver : [Nama]
+> Nopol : [Plat Nomor]
+> No.Cont : [Nomor Container]
+> *Penting: Tanpa format teks di atas, sistem AI tidak akan memverifikasi kedatangan unit.*
+
+---
+
+### 📊 Project Architecture Overview
+
+### 💡 Final Bot Management Tips (For You)
+
+* **Pre-Planning**: Always use **`!add`** in your private chat *before* the vendor sends their update so the bot knows to look for that specific container.
+* **Private Oversight**: Use **`!pending`** in your private chat to see which containers are still on the road without alerting the staff.
+* **Error Correction**: If a vendor makes a typo, use **`!forget [Number]`** and have them resend the correct format to reset the history.
 
 ## ⚠️ Disclaimer
 
