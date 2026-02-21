@@ -83,11 +83,11 @@ At exactly 5:00 PM, the bot tallies the day's CSV logs and sends this to the man
 
 ## 🛠️ Tech Stack
 
-* **Runtime:** [Node.js](https://nodejs.org/)
-* **API Wrapper:** [`whatsapp-web.js`](https://wwebjs.dev/) (Headless WhatsApp Web client via Puppeteer)
-* **AI Engine:** `tesseract.js` (Optical Character Recognition)
-* **Task Scheduler:** `node-cron`
-* **Process Manager:** `pm2`
+* **Runtime:** Node.js
+* **API Wrapper:** whatsapp-web.js
+* **Enterprise AI: Google Cloud Vision API
+* **Data Handling: JSON (State Memory) & CSV (Audit Logs)
+* **Automation: node-cron & pm2
 
 ---
 
