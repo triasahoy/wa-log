@@ -47,7 +47,7 @@ When a trucking vendor sends an unstructured update, the bot instantly parses an
 When security sends a photo of the truck arriving at the KEK gates, the bot reads the caption AND scans the photo pixels:
 > ✅*[CONTAINER ARRIVED]*
 > 
-> IN armada Container import ke 1 dari PT.IFE dengan surat jalan.
+> IN armada Container import ke 1.
 > ✅Driver : R******
 > ✅Nopol : H 5678 XX
 > ✅No.Cont : XXXX9876543
