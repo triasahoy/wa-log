@@ -44,7 +44,7 @@ When a trucking vendor sends an unstructured update, the bot instantly parses an
 > No tlp : 0812********
 
 ### 2. Factory Arrival + AI Vision Verification
-When security sends a photo of the truck arriving at the KEK gates, the bot reads the caption AND scans the photo pixels:
+When security sends a photo of the truck arriving at the Factory gates, the bot reads the caption AND scans the photo pixels:
 > ✅*[CONTAINER ARRIVED]*
 > 
 > IN armada Container import ke 1.
